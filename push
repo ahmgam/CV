@@ -16,5 +16,5 @@ VERSION="$1"
 MESSAGE="$2"
 git add .
 git ct -m "add : $MESSAGE"
-git tag -a v$VERSION -m "Releasing version $VERSION"
+git tag -a $VERSION -m "Releasing version $VERSION"
 git push
