@@ -17,8 +17,8 @@ jobs:
             mv examples/resume.pdf results
             mv examples/coverletter.pdf results
       - persist_to_workspace:
-          root: .
-          paths: results
+          root: ./results
+          paths: 
   deploy:
     docker:
       - image: cibuilds/github:0.13
