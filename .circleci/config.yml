@@ -17,7 +17,7 @@ jobs:
             mv examples/resume.pdf results
             mv examples/coverletter.pdf results
       - persist_to_workspace:
-          root: ~/project
+          root: .
           paths: results
   deploy:
     docker:
