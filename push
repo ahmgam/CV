@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+if [ "$#" -ne 2 ]; then
+    cat << EOF
+Usage: ./push "VERSION" "MESSAGE"
+Examples:
+./push "1.0.0" "Big features"
+latest versions: 
+EOF
+    git tag
+    exit
+fi
+
+
+VERSION="$1"
+MESSAGE="$2"
+git add .
+git ct -m "add : $MESSAGE"
+git push
+git tag -a v$VERSION -m "Releasing version $VERSION"
+git push --tags

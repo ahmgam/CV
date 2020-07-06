@@ -1,0 +1,54 @@
+version: 2.0
+
+jobs:
+  build:
+    docker:
+      - image: thomasweise/texlive
+    steps:
+      - checkout
+      - run:
+          name: Compile
+          command: make
+      - run:
+          name: Move artifacts
+          command: |
+            mkdir -p results
+            mv examples/cv.pdf results
+            mv examples/resume.pdf results
+            mv examples/coverletter.pdf results
+            VERSION=$(cat VERSION)
+            echo "Manoo: VERSION: $VERSION"
+            echo "Manoo: GITHUB_TOKEN $GITHUB_TOKEN"
+            echo "Manoo: CIRCLE_PROJECT_USERNAME $CIRCLE_PROJECT_USERNAME"
+            echo "Manoo: CIRCLE_PROJECT_REPONAME $CIRCLE_PROJECT_REPONAME"
+            echo "Manoo: CIRCLE_SHA1 $CIRCLE_SHA1"
+      - store_artifacts:
+          path: ./results
+  deploy:
+    docker:
+      - image: cibuilds/github:0.13
+    steps:
+      - attach_workspace:
+          at: ./results
+      - run:
+          name: "Publish Release on GitHub"
+          command: |
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${CIRCLE_TAG} ./results/
+workflows:
+  version: 2
+  main:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
