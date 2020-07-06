@@ -5,9 +5,9 @@ if [ "$#" -ne 2 ]; then
 Usage: ./push "VERSION" "MESSAGE"
 Examples:
 ./push "1.0.0" "Big features"
-latest versions: 
+latest version: 
 EOF
-    git tag
+    cat version
     exit
 fi
 
