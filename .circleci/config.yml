@@ -16,7 +16,7 @@ jobs:
             mv examples/cv.pdf results
             mv examples/resume.pdf results
             mv examples/coverletter.pdf results
-      - store_artifacts:
+      - persist_to_workspace:
           path: ./results
   deploy:
     docker:
