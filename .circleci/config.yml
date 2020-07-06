@@ -38,7 +38,12 @@ workflows:
   version: 2
   main:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /v.*/        
       - deploy:
           requires:
             - build
