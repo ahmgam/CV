@@ -16,20 +16,10 @@ jobs:
             mv examples/cv.pdf results
             mv examples/resume.pdf results
             mv examples/coverletter.pdf results
-      - run:
-          name: List Dir
-          command: |
-            pwd
-            ls -la
       - persist_to_workspace:
           root: .
           paths: 
             - results/
-      - run:
-          name: List Dir
-          command: |
-            pwd
-            ls -la
   deploy:
     docker:
       - image: cibuilds/github:0.13
@@ -37,12 +27,6 @@ jobs:
       - checkout
       - attach_workspace:
           at: .
-      - run:
-          name: List Dir
-          command: |
-            pwd
-            ls -la
-            find .
       - run:
           name: "Publish Release on GitHub"
           command: |
