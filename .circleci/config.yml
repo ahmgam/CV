@@ -16,9 +16,6 @@ jobs:
             mv examples/cv.pdf results
             mv examples/resume.pdf results
             mv examples/coverletter.pdf results
-      - persist_to_workspace:
-          root: ./results
-          paths: 
   deploy:
     docker:
       - image: cibuilds/github:0.13
@@ -30,8 +27,6 @@ jobs:
             pwd
             ls -la
             find . 
-      - attach_workspace:
-          at: ./results
       - run:
           name: "Publish Release on GitHub"
           command: |
