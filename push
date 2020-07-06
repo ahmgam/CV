@@ -17,5 +17,4 @@ MESSAGE="$2"
 echo $VERSION > version
 git add .
 git ct -m "add : $MESSAGE"
-git tag $VERSION
 git push
