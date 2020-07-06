@@ -1,5 +1,5 @@
 <div align="center">
-<h1>AbdElraouf Sabri</h1>
+<h1>AbdElraouf Sabri Personal CV</h1>
 </div>
 
 <div align="center">
@@ -17,23 +17,5 @@
   </a>
 </div>
 
-# CV
-<object data="https://github.com/AbdElraoufSabri/CV/releases/latest/download/cv.pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="https://github.com/AbdElraoufSabri/CV/releases/latest/download/cv.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://github.com/AbdElraoufSabri/CV/releases/latest/download/cv.pdf">Download PDF</a>.</p>
-    </embed>
-</object>
-
-# Resume
-<object data="https://github.com/AbdElraoufSabri/CV/releases/latest/download/resume.pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="https://github.com/AbdElraoufSabri/CV/releases/latest/download/resume.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://github.com/AbdElraoufSabri/CV/releases/latest/download/resume.pdf">Download PDF</a>.</p>
-    </embed>
-</object>
-
-# Cover letter
-<object data="https://github.com/AbdElraoufSabri/CV/releases/latest/download/coverletter.pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="https://github.com/AbdElraoufSabri/CV/releases/latest/download/coverletter.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://github.com/AbdElraoufSabri/CV/releases/latest/download/coverletter.pdf">Download PDF</a>.</p>
-    </embed>
-</object>
+## Credit
+This is a fork from: [posquit0/Awesome-CV](https://github.com/posquit0/Awesome-CV)
