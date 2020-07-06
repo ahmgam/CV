@@ -37,6 +37,10 @@ workflows:
   version: 2
   main:
     jobs:
+      - build:
+          filters:
+            tags:
+              only: /^v.*/
       - deploy:
           requires:
             - build
