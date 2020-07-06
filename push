@@ -14,6 +14,7 @@ fi
 
 VERSION="$1"
 MESSAGE="$2"
+echo $VERSION > version
 git add .
 git ct -m "add : $MESSAGE"
 git tag -a $VERSION -m "Releasing version $VERSION"
