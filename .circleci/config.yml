@@ -36,7 +36,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: ./results
+          at: .
       - run:
           name: List Dir
           command: |
@@ -47,7 +47,7 @@ jobs:
           name: "Publish Release on GitHub"
           command: |
             VERSION=$(cat version)
-            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} ${VERSION} ./results
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} ${VERSION} results
 workflows:
   version: 2
   main-workflow:
