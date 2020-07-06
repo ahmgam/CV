@@ -16,6 +16,7 @@ jobs:
             mv examples/cv.pdf results
             mv examples/resume.pdf results
             mv examples/coverletter.pdf results
+            mv version results
       - store_artifacts:
           path: ./results
   deploy:
@@ -28,7 +29,7 @@ jobs:
       - run:
           name: "Publish Release on GitHub"
           command: |
-            VERSION=$(cat version)
+            VERSION=$(cat ./results/version)
             ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./results/
 workflows:
   version: 2
