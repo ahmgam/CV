@@ -214,12 +214,12 @@
 \newcommand*{\subdescriptionstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\upshape\color{text} #1}}
 
 % For elements of cert
-\newcommand*{\certSlogan}[1]{{\fontsize{9pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\certTitle}[1]{{\fontsize{9pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\certDateFrom}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
-\newcommand*{\certDateTo}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
-\newcommand*{\certIssuer}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
-\newcommand*{\certId}[2]{{Certification ID: \href{#2}{\fontsize{9pt}{1em}\bodyfont\bfseries\color{darktext} #1}}}
+\newcommand*{\certSlogan}[1]{{\fontsize{8pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
+\newcommand*{\certTitle}[1]{{\fontsize{8pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
+\newcommand*{\certDateFrom}[1]{{\fontsize{7pt}{1em}\bodyfontlight\color{graytext} #1}}
+\newcommand*{\certDateTo}[1]{{\fontsize{7pt}{1em}\bodyfontlight\color{graytext} #1}}
+\newcommand*{\certIssuer}[1]{{\fontsize{8pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
+\newcommand*{\certId}[2]{{Certification ID: \href{#2}{\fontsize{8pt}{1em}\bodyfont\bfseries\color{darktext} #1}}}
 
 % For elements of honor
 \newcommand*{\honortitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
@@ -656,7 +656,7 @@
 % Usage: \cvcert{<slogan>}{<title>}{<issuer>}{<date-from>}{<date-to>}{<cert-id>}{<cert-link>}
 \newcommand*{\cvcert}[7]{%
   
-  \certSlogan{#1} --- \certTitle{#2} & \certIssuer{#3}\\
+  \certSlogan{#1} - \certTitle{#2} & \certIssuer{#3}\\
   \certId{#6}{#7} & \certDateFrom{#4} -- \certDateTo{#5} \\
 }
 
