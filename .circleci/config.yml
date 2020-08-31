@@ -13,7 +13,6 @@ jobs:
           name: Move artifacts
           command: |
             mkdir -p results
-            mv examples/cv.pdf results
             mv examples/resume.pdf results
             mv examples/coverletter.pdf results
       - persist_to_workspace:
