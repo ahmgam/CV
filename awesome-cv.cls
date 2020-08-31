@@ -219,7 +219,7 @@
 \newcommand*{\certDateFrom}[1]{{\fontsize{7pt}{1em}\bodyfontlight\color{graytext} #1}}
 \newcommand*{\certDateTo}[1]{{\fontsize{7pt}{1em}\bodyfontlight\color{graytext} #1}}
 \newcommand*{\certIssuer}[1]{{\fontsize{8pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
-\newcommand*{\certId}[2]{{\fontsize{8pt}{1em}\bodyfontlight Certification ID: \href{#2}{\fontsize{8pt}{1em}\bodyfont\bfseries\color{darktext} #1}}}
+\newcommand*{\certId}[2]{{\fontsize{8pt}{1em}\bodyfontlight Certification ID: \href{#2}{\fontsize{8pt}{1em} #1}}}
 
 % For elements of honor
 \newcommand*{\honortitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
