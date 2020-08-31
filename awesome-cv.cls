@@ -657,7 +657,7 @@
 \newcommand*{\cvcert}[7]{%
   
   \certSlogan{#1} - \certTitle{#2} & \certIssuer{#3}\\
-  \certId{#6}{#7} & \certDateFrom{#4} -- \certDateTo{#5} \\
+  \certId{#6}{#7} & \certDateFrom{#4} - \certDateTo{#5} \\
 }
 
 % Define an environment for cvhonor
