@@ -191,7 +191,7 @@
 \newcommand*{\headerfirstnamestyle}[1]{{\fontsize{32pt}{1em}\headerfontlight\color{graytext} #1}}
 \newcommand*{\headerlastnamestyle}[1]{{\fontsize{32pt}{1em}\headerfont\bfseries\color{text} #1}}
 \newcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\bodyfont\scshape\color{awesome} #1}}
-\newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
+\newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1.2em}\headerfont\itshape\color{text} #1}}
 \newcommand*{\headersocialstyle}[1]{{\fontsize{6.8pt}{1em}\headerfont\color{text} #1}}
 \newcommand*{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
 \newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
@@ -213,13 +213,7 @@
 \newcommand*{\subentrylocationstyle}[1]{{\fontsize{7pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
 \newcommand*{\subdescriptionstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\upshape\color{text} #1}}
 
-% For elements of cert
-\newcommand*{\certSlogan}[1]{{\fontsize{8pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\certTitle}[1]{{\fontsize{8pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\certDateFrom}[1]{{\fontsize{7pt}{1em}\bodyfontlight\color{graytext} #1}}
-\newcommand*{\certDateTo}[1]{{\fontsize{7pt}{1em}\bodyfontlight\color{graytext} #1}}
-\newcommand*{\certIssuer}[1]{{\fontsize{8pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
-\newcommand*{\certId}[2]{{\fontsize{8pt}{1em}\bodyfontlight Certification ID: \href{#2}{\fontsize{8pt}{1em} #1}}}
+\newcommand*{\certId}[2]{{\descriptionstyle{Certification ID:} \href{#2}{\subdescriptionstyle{#1}}}}
 
 % For elements of honor
 \newcommand*{\honortitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
@@ -665,22 +659,31 @@
 % Define an environment for cvcertifications
 \newenvironment{cvcerts}{%
   \vspace{\acvSectionContentTopSkip}
-  \vspace{-2mm}
   \begin{center}
-    \setlength\tabcolsep{0pt}
-    \setlength{\extrarowheight}{0pt}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.0cm} R{4.5cm}}
 }{%
-    \end{tabular*}
   \end{center}
 }
 % Define a line of cv information
 % Usage: \cvcert{<slogan>}{<title>}{<issuer>}{<date-from>}{<date-to>}{<cert-id>}{<cert-link>}
 \newcommand*{\cvcert}[7]{%
-  
-  \certSlogan{#1} - \certTitle{#2} & \certIssuer{#3}\\
-  \certId{#6}{#7} & \certDateFrom{#4} - \certDateTo{#5} \\
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \entrytitlestyle{#1} - \entrytitlestyle{#2} & \entrylocationstyle{#3}\\
+    \certId{#6}{#7} & \entrydatestyle{#4} - \entrydatestyle{#5} \\
+  \end{tabular*}%
 }
+
+% \newcommand*{\cventry}[5]{%
+%   \vspace{-2.0mm}
+%   \setlength\tabcolsep{0pt}
+%   \setlength{\extrarowheight}{0pt}
+%   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+%     \entrytitlestyle{#2} & \entrylocationstyle{#3} \\
+%     \entrypositionstyle{#1} & \entrydatestyle{#4} \\
+%     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}
+%   \end{tabular*}%
+% }
 
 % Define an environment for cvhonor
 \newenvironment{cvhonors}{%
