@@ -83,9 +83,9 @@
 % Needed to deal hyperlink
 \RequirePackage[hidelinks,unicode]{hyperref}
 \hypersetup{%
-  pdftitle={},
-  pdfauthor={},
-  pdfsubject={},
+  pdftitle={AbdElraouf Sabri's Resume},
+  pdfauthor={AbdElraouf Sabri},
+  pdfsubject={resume},
   pdfkeywords={}
 }
 
@@ -229,7 +229,7 @@
 
 % For elements of skill
 \newcommand*{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{text} #1}}
+\newcommand*{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text} #1}}
 
 % For elements of the cover letter
 \newcommand*{\lettersectionstyle}[1]{{\fontsize{14pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
@@ -594,6 +594,28 @@
   \vspace{2mm}
 }
 
+% Define an environment for cvprojects
+\newenvironment{cvprojects}{%
+  \vspace{\acvSectionContentTopSkip}
+  \begin{center}
+}{%
+  \end{center}
+}
+% Define an entry of cv information
+% Usage: \cvproject{<Project>}{<title>}{<date>}{<description>}
+\newcommand*{\cvproject}[4]{%
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+  \entrytitlestyle{#1} & \entrydatestyle{#3} \\
+  \ifempty{#2}
+    {\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#4}} \\}
+    {\entrypositionstyle{#2} & \\
+     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#4}} \\}
+  \end{tabular*}%
+}
+
 % Define an environment for cventry
 \newenvironment{cventries}{%
   \vspace{\acvSectionContentTopSkip}
@@ -693,7 +715,7 @@
 % Define a line of cv information(skill)
 % Usage: \cvskill{<type>}{<skillset>}
 \newcommand*{\cvskill}[2]{%
-	\skilltypestyle{#1} & \skillsetstyle{#2} \\
+  \skilltypestyle{#1} & \skillsetstyle{#2} \\
 }
 
 % Define an environment for cvitems(for cventry)
